@@ -1,10 +1,10 @@
 #include <iostream>
-#include "Board.h"
+#include "Game.h"
 using namespace std;
 
 int main()
 {
-    Board b1(5);
-    b1.display();
+    cout<<"GoodMorning"<<endl;
+    Game *g1 = new Game();
+    delete g1;
 }
-

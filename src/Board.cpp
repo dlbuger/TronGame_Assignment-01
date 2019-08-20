@@ -1,15 +1,23 @@
 #include <iostream>
 #include "Board.h"
 #include <vector>
+#include <array>
 using namespace std;
 
 
 
-vector<vector<string>> scene;
+vector<vector<string>> track; // position
+vector<vector<string>> frame;
+
+
+Board::Board(int size){
+    this->size = size;
+    initVector(size);
+}
 
 
 void Board::initVector(int size){
-    
+
     // Initialize two types of frame
     string const borderA = " ---";
     string const borderB = "|   ";
@@ -21,29 +29,45 @@ void Board::initVector(int size){
     }
     borderAs.insert(borderAs.end(), "\n");
     borderBs.insert(borderBs.end(), "|\n");
-    
 
-    // Add the borders into the vector;
+
     for (int i=0;i<size;i++){
-        scene.push_back(borderAs);
-        scene.push_back(borderBs);
+        frame.push_back(borderAs);
+        track.push_back(borderBs);
     }   
-    scene.push_back(borderAs);
+    frame.push_back(borderAs);
+}
+
+void Board::initPlayer(Player *p1, Player *p2)
+{
+    update(p1, p1->getColor());
+    update(p2, p2->getColor());
 }
 
 void Board::display(){
-    for (auto i:scene)
-        for(string k:i)
-            cout<< k;
+    for(int i=0;i<size;i++)
+    {
+        for(string j:frame[i])
+            cout<<j;
+        for(string k:track[i])
+            cout<<k;
+    }
+    for(string j:frame[0])
+        cout<<j;
+    cout<<endl<<endl;
 }
 
-
-
-Board::Board(int size){
-    initVector(size);
+int Board::getSize()
+{
+    return size;
 }
 
+void Board::update(Player *p, char mark)
+{
+    track[p->getPosition()[0]][p->getPosition()[1]][2] = mark;
+
+}
 
 Board::~Board(){
-    cout << "finish!";
+    cout << "End of :Board"<<endl;
 }
