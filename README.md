@@ -24,4 +24,8 @@
 |moveLeft()          |
 |moveRight()         |
 
+```cpp
+virtual char generateChoice()=0; //Override in children class; 
+```
+
 ### Board
