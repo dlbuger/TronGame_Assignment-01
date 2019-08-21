@@ -13,12 +13,12 @@
 |      ---           |---                          |---                         |
 |id                  |                             |void monte-carlo tree search| 
 |name                |                             |void randomWalk()           |  
-|color               |                             |Q-Learning()                |
+|color               |                             |void Q-Learning()           |
 |------------------------------|
 |getColor()          |
 |move()              |
 |bool isCrash()      |
-|[2]getPosition()    |
+|int[2] getPosition()|
 |moveUp()            |
 |moveDown()          |
 |moveLeft()          |
