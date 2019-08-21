@@ -18,7 +18,7 @@
 |getColor()          |
 |move()              |
 |bool isCrash()      |
-|[2]getPosition()    |
+|int[2] getPosition()|
 |moveUp()            |
 |moveDown()          |
 |moveLeft()          |
