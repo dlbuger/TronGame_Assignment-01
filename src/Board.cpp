@@ -5,10 +5,8 @@
 using namespace std;
 
 
-
 vector<vector<string>> track; // position
 vector<vector<string>> frame;
-
 
 Board::Board(int size){
     this->size = size;
@@ -29,7 +27,6 @@ void Board::initVector(int size){
     }
     borderAs.insert(borderAs.end(), "\n");
     borderBs.insert(borderBs.end(), "|\n");
-
 
     for (int i=0;i<size;i++){
         frame.push_back(borderAs);
@@ -62,10 +59,10 @@ int Board::getSize()
     return size;
 }
 
+
 void Board::update(Player *p, char mark)
 {
     track[p->getPosition()[0]][p->getPosition()[1]][2] = mark;
-
 }
 
 Board::~Board(){

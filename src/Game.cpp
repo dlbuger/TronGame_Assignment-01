@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 Game::Game()
 {
     setup();
@@ -18,32 +17,60 @@ void Game::setup()
     int size;
     cout<<"Enter the Board's size length: ";
     cin>>size;
+    //initialize Board
     b1 = new Board(size);
     p1 = new Player(1,"Jason",'R',1,1);
     p2 = new Player(2,"ReCo",'B',b1->getSize()-2,b1->getSize()-2);
+    b1->initPlayer(p1,p2);   
+    trace.push_back(p1->getPosition());
+    trace.push_back(p2->getPosition());
+    b1->display();
 }
 
 void Game::run()
 {
-    b1->initPlayer(p1,p2);   
-    b1->display();
+    PVP();
+    cout<<p1->crash(*p2,trace);
+    while(!p1->crash(*p2,trace))
+    {
+        PVP();
+    }
 }
 
 void Game::menu()
 {
     char choice;
     cin>>choice;
-    /* switch(choice) */
-    /* { */
-    /*     case '' */
-    /* } */
+    switch(choice)
+    {
+    case '1': PVP();
+    }
+}
+
+void Game::PVP()
+{
+    // Get direction
+    cout<<"\tPlease Enter your choice - U D L R!:";
+    string p1Move;
+    cin>>p1Move;
+    cout<<"\tPlease Enter your choice - U D L R!:";
+    string p2Move;
+    cin>>p2Move;
+
+    b1->update(p1,'0');
+    b1->update(p2,'0');
+
+    p1->move(toupper(p1Move[0]));
+    p2->move(toupper(p2Move[0]));
+    b1->update(p1,'R');
+    b1->update(p2,'B');
+    
+    b1->display();
 }
 
 Game::~Game()
 {
-    cout<<"End of :Game"<<endl;
-    // Report
-    
+    cout<<"Calling Game Class Destructor!"<<endl;
     delete b1;
     delete p1;
     delete p2;

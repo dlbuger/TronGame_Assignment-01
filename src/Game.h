@@ -1,6 +1,7 @@
 #pragma once
 #include "Player.h"
 #include "Board.h"
+#include <vector>
 
 class Game
 {
@@ -16,5 +17,7 @@ private:
     Board *b1;
     Player *p1;
     Player *p2;
+    void PVP();
+    vector<array<int, 2>> trace;
 };
 

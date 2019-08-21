@@ -1,5 +1,6 @@
 #include <iostream>
 #include <array>
+#include <vector>
 #include "Player.h"
 using namespace std;
 
@@ -20,11 +21,23 @@ void Player::move(char direction)
     case 'D': moveDown();break;
     case 'L': moveLeft();break;
     case 'R': moveRight();break;
+    default: cout<<"Incorrect instruction!"<<endl;
     }
+    cout<<"Current Position" <<endl;
+    cout<<"["<<position[0]<<", "<<position[1]<<"]"<<endl;
+
+
 }
 
-
-
+bool Player::crash(Player p, vector<array<int, 2>> trace)
+{
+    if (position == p.getPosition())
+        return true;
+    for (array<int,2> pass:trace)
+        if(position == pass)
+            return true;
+    return false;
+}
 
 // Accessors
 array<int,2> Player::getPosition()
@@ -42,12 +55,12 @@ char Player::getColor()
 // Moves
 void Player::moveUp()
 {
-    position[0]++;
+    position[0]--;
 }
 
 void Player::moveDown()
 {
-    position[0]--;
+    position[0]++;
 }
 void Player::moveLeft()
 {

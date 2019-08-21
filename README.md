@@ -6,5 +6,22 @@
 - Source Code is in ./src
 - Executable file is in ./out
 
+## Class Structure
+### Player
 
+|Player(absract)     |HumanPlayer (inherit Player) |AI (inherit Player)|
+|      ---           |---                          |---                         |
+|id                  |                             |void monte-carlo tree search| 
+|name                |                             |void randomWalk()           |  
+|color               |                             |Q-Learning()                |
+|------------------------------|
+|getColor()          |
+|move()              |
+|bool isCrash()      |
+|[2]getPosition()    |
+|moveUp()            |
+|moveDown()          |
+|moveLeft()          |
+|moveRight()         |
 
+### Board

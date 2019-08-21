@@ -11,8 +11,8 @@ public:
     Player(int id, string name, char color, int row, int col);
     Player(){}
     void move(char direction);
-    bool crash(Player p);
-    array<int, 2>getPosition();
+    bool crash(Player p,vector<array<int, 2>> trace);
+    array<int, 2> getPosition();
     char getColor();
     ~Player(){
         cout<<"End of :Player "<<endl;
