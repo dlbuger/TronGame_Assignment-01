@@ -11,11 +11,10 @@ public:
     Player(int id, string name, string color, int row, int col);
     Player(){}
     void move(char direction);
-    bool crash(Player p,vector<array<int, 2>> trace);
+    bool crash(Player p, vector<array<int, 2>> trace);
     array<int, 2> getPosition();
     string getColor();
     ~Player(){
-        /* cout<<"End of :Player "<<endl; */
     }
 
 private:

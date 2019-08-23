@@ -36,11 +36,14 @@ bool Player::crash(Player p, vector<array<int, 2>> trace)
         cout<< "Draw." << endl;
         return true;
     }
-    for (array<int,2> pass:trace)
+    cout<<"["<<position[0]<<", "<<position[1]<<"]"<<endl;
+    for (array<int,2> pass:trace){
+        cout<<"["<<pass[0]<<", "<<pass[1]<<"]"<<endl;
         if(position == pass){
-            cout << color <<" crashed, Game Over!" << endl;
+            cout << color << " Crashed, Game Over!" << endl;
             return true;
         }
+    }
     return false;
 }
 

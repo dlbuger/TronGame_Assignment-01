@@ -2,6 +2,8 @@
 #include "Board.h"
 #include <vector>
 #include <array>
+#include <csignal>
+
 using namespace std;
 
 vector<vector<string>> track; // position
@@ -70,9 +72,19 @@ int Board::getSize()
     return size;
 }
 
+vector<array<int, 2>> Board::getDeadZone()
+{
+    return deadZone;
+}
 
 void Board::update(Player *p, char mark)
 {
-    track[p->getPosition()[0]][p->getPosition()[1]][2] = mark;
+    int x = p->getPosition()[0];
+    int y = p->getPosition()[1];
+    for(auto c:deadZone)
+        if(p->getPosition() == c)
+            cout<<"Game Over! Player enter Dead Zone."<<endl;
+        else
+            track[x][y][2] = mark;
 }
 

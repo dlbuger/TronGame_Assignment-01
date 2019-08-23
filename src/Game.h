@@ -19,5 +19,6 @@ private:
     Player *p2;
     void PVP();
     vector<array<int, 2>> trace;
+    void initDeadZone();
 };
 
