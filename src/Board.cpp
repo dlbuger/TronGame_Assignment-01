@@ -4,13 +4,14 @@
 #include <array>
 using namespace std;
 
-
 vector<vector<string>> track; // position
 vector<vector<string>> frame;
+vector<array<int,2>> deadZone;
 
 Board::Board(int size){
     this->size = size;
     initVector(size);
+    initDeadZone();
 }
 
 
@@ -35,10 +36,20 @@ void Board::initVector(int size){
     frame.push_back(borderAs);
 }
 
+void Board::initDeadZone()
+{   
+    for(int i=0;i<size;i++){
+        deadZone.push_back({-1,i});
+        deadZone.push_back({size,i});
+        deadZone.push_back({i,-1});
+        deadZone.push_back({i,size});
+    }
+}
+
 void Board::initPlayer(Player *p1, Player *p2)
 {
-    update(p1, p1->getColor());
-    update(p2, p2->getColor());
+    update(p1, p1->getColor()[0]);
+    update(p2, p2->getColor()[0]);
 }
 
 void Board::display(){
@@ -51,7 +62,7 @@ void Board::display(){
     }
     for(string j:frame[0])
         cout<<j;
-    cout<<endl<<endl;
+    cout<<endl;
 }
 
 int Board::getSize()
@@ -65,6 +76,3 @@ void Board::update(Player *p, char mark)
     track[p->getPosition()[0]][p->getPosition()[1]][2] = mark;
 }
 
-Board::~Board(){
-    cout << "End of :Board"<<endl;
-}

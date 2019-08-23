@@ -8,25 +8,25 @@ using namespace std;
 class Player
 {
 public:
-    Player(int id, string name, char color, int row, int col);
+    Player(int id, string name, string color, int row, int col);
     Player(){}
     void move(char direction);
     bool crash(Player p,vector<array<int, 2>> trace);
     array<int, 2> getPosition();
-    char getColor();
+    string getColor();
     ~Player(){
-        cout<<"End of :Player "<<endl;
+        /* cout<<"End of :Player "<<endl; */
     }
 
 private:
     int id;
     string name;
-    char color;
+    string color;
     array<int,2> position; // current coordinate
-    /* vector<int [2]> trace; // Passed position */
     void moveUp();
     void moveDown();
     void moveLeft();
     void moveRight();
+protected:
 };
 

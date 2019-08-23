@@ -4,7 +4,7 @@
 #include "Player.h"
 using namespace std;
 
-Player::Player(int id, string name, char color,int row, int col)
+Player::Player(int id, string name, string color,int row, int col)
 {
     this->id = id;
     this->name = name;
@@ -23,7 +23,7 @@ void Player::move(char direction)
     case 'R': moveRight();break;
     default: cout<<"Incorrect instruction!"<<endl;
     }
-    cout<<"Current Position" <<endl;
+    cout << color <<" Current Position\t";
     cout<<"["<<position[0]<<", "<<position[1]<<"]"<<endl;
 
 
@@ -32,10 +32,15 @@ void Player::move(char direction)
 bool Player::crash(Player p, vector<array<int, 2>> trace)
 {
     if (position == p.getPosition())
+    {   
+        cout<< "Draw." << endl;
         return true;
+    }
     for (array<int,2> pass:trace)
-        if(position == pass)
+        if(position == pass){
+            cout << color <<" crashed, Game Over!" << endl;
             return true;
+        }
     return false;
 }
 
@@ -46,7 +51,7 @@ array<int,2> Player::getPosition()
     return position;
 }
 
-char Player::getColor()
+string Player::getColor()
 {
     return color;
 }

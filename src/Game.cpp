@@ -19,8 +19,8 @@ void Game::setup()
     cin>>size;
     //initialize Board
     b1 = new Board(size);
-    p1 = new Player(1,"Jason",'R',1,1);
-    p2 = new Player(2,"ReCo",'B',b1->getSize()-2,b1->getSize()-2);
+    p1 = new Player(1,"Jason","RED",1,1);
+    p2 = new Player(2,"ReCo","BLUE",b1->getSize()-2,b1->getSize()-2);
     b1->initPlayer(p1,p2);   
     trace.push_back(p1->getPosition());
     trace.push_back(p2->getPosition());
@@ -30,11 +30,11 @@ void Game::setup()
 void Game::run()
 {
     PVP();
-    cout<<p1->crash(*p2,trace);
-    while(!p1->crash(*p2,trace))
+    while(!p1->crash(*p2,trace) && !p2->crash(*p1,trace)  )
     {
         PVP();
     }
+    b1->display();
 }
 
 void Game::menu()
@@ -46,13 +46,15 @@ void Game::menu()
     case '1': PVP();
     }
 }
-
 void Game::PVP()
 {
     // Get direction
+    cout<<"Red Turn:"<<endl;
     cout<<"\tPlease Enter your choice - U D L R!:";
     string p1Move;
     cin>>p1Move;
+
+    cout<<"Blue Turn:"<<endl;
     cout<<"\tPlease Enter your choice - U D L R!:";
     string p2Move;
     cin>>p2Move;
@@ -70,7 +72,7 @@ void Game::PVP()
 
 Game::~Game()
 {
-    cout<<"Calling Game Class Destructor!"<<endl;
+    /* cout<<"Calling Game Class Destructor!"<<endl; */
     delete b1;
     delete p1;
     delete p2;
