@@ -2,18 +2,15 @@
 #include "Board.h"
 #include <vector>
 #include <array>
-#include <csignal>
 
 using namespace std;
 
 vector<vector<string>> track; // position
 vector<vector<string>> frame;
-vector<array<int,2>> deadZone;
 
 Board::Board(int size){
     this->size = size;
     initVector(size);
-    initDeadZone();
 }
 
 
@@ -38,15 +35,6 @@ void Board::initVector(int size){
     frame.push_back(borderAs);
 }
 
-void Board::initDeadZone()
-{   
-    for(int i=0;i<size;i++){
-        deadZone.push_back({-1,i});
-        deadZone.push_back({size,i});
-        deadZone.push_back({i,-1});
-        deadZone.push_back({i,size});
-    }
-}
 
 void Board::initPlayer(Player *p1, Player *p2)
 {
@@ -72,19 +60,16 @@ int Board::getSize()
     return size;
 }
 
-vector<array<int, 2>> Board::getDeadZone()
-{
-    return deadZone;
-}
-
 void Board::update(Player *p, char mark)
 {
     int x = p->getPosition()[0];
     int y = p->getPosition()[1];
-    for(auto c:deadZone)
-        if(p->getPosition() == c)
-            cout<<"Game Over! Player enter Dead Zone."<<endl;
-        else
-            track[x][y][2] = mark;
+    try{
+        track.at(x).at(y)[2]=mark;  //use at() to acess element in order to check list range;
+    }catch(out_of_range){
+        cout<<endl<<"\tGame Over!"<<endl;
+        cout<<p->getColor()<<" Entered Dead Zone."<<endl;
+        exit(0);
+    }
 }
 

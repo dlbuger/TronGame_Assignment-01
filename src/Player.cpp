@@ -23,8 +23,7 @@ void Player::move(char direction)
     case 'R': moveRight();break;
     default: cout<<"Incorrect instruction!"<<endl;
     }
-    cout << color <<" Current Position\t";
-    cout<<"["<<position[0]<<", "<<position[1]<<"]"<<endl;
+    cout<<"\t["<<position[0]<<", "<<position[1]<<"]"<<endl;
 
 
 }
