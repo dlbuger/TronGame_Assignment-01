@@ -14,10 +14,12 @@ public:
     bool crash(Player p, vector<array<int, 2>> trace);
     array<int, 2> getPosition();
     string getColor();
+    virtual char generateChoice();
     ~Player(){
+
     }
 
-private:
+protected:
     int id;
     string name;
     string color;
@@ -26,6 +28,7 @@ private:
     void moveDown();
     void moveLeft();
     void moveRight();
-protected:
+
+private:
 };
 

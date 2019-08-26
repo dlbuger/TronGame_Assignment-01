@@ -1,9 +1,4 @@
-#include <iostream>
-#include <vector>
 #include "Game.h"
-#include "Player.h"
-#include "Board.h"
-
 using namespace std;
 
 Game::Game()
@@ -23,9 +18,12 @@ void Game::setup()
     }
     //initialize Board and Players
     b1 = new Board(size);
-    p1 = new Player(1,"Jason","RED",1,1);
-    p2 = new Player(2,"ReCo","BLUE",b1->getSize()-2,b1->getSize()-2);
-    b1->initPlayer(p1,p2);   
+    p1 = new Human(1,"Jason","RED",1,1);
+    cout<<"Create Player 1 - "<<p1->getColor()<<endl;
+    p2 = new Human(2,"ReCo","BLUE",b1->getSize()-2,b1->getSize()-2);
+    cout<<"Create Player 2 - "<<p2->getColor()<<endl;
+    b1->initPlayer(p1,p2); 
+    cout<<"Initialize Players complete!"<<endl;
     b1->display();
 }
 
@@ -52,21 +50,15 @@ void Game::menu()
 }
 void Game::PVP()
 {
-    // Get direction
-    cout<<"Red Turn:"<<endl;
-    cout<<"\tPlease Enter your choice - U D L R!:";
-    string p1Move;
-    cin>>p1Move;
-    p1->move(toupper(p1Move[0]));
-
-    cout<<"Blue Turn:"<<endl;
-    cout<<"\tPlease Enter your choice - U D L R!:";
-    string p2Move;
-    cin>>p2Move;
-    p2->move(toupper(p2Move[0]));
-
     b1->update(p1,'0');
     b1->update(p2,'0');
+    // Get direction
+    cout<<"Red Turn:"<<endl;
+    p1->move(p1->generateChoice());
+
+    cout<<"Blue Turn:"<<endl;
+    p2->move(p2->generateChoice());
+
     b1->update(p1,'R');
     b1->update(p2,'B');
 
