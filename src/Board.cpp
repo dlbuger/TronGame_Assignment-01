@@ -26,7 +26,6 @@ void Board::initVector(int size){
         borderBs.insert(borderBs.end(), borderB);
     }
     borderAs.insert(borderAs.end(), "\n");
-    borderBs.insert(borderBs.end(), "|\n");
 
     for (int i=0;i<size;i++){
         frame.push_back(borderAs);
@@ -49,6 +48,7 @@ void Board::display(){
             cout<<j;
         for(string k:track[i])
             cout<<k;
+        cout<<"|\n";
     }
     for(string j:frame[0])
         cout<<j;

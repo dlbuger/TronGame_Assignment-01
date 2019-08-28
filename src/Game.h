@@ -26,6 +26,7 @@ private:
     // Person vs Compuer
     void initPVC();
     void initPVP();
+    void initCVC();
 
     Player* initHuman(string color, int row, int col);
     Player* initBot(string name, string color, int row, int col, int difficulty);

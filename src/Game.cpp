@@ -1,6 +1,8 @@
 #include "Game.h"
 using namespace std;
 
+char choice;
+
 Game::Game()
 {
     setup();
@@ -29,13 +31,13 @@ void Game::menu()
     cout<<"4. Bot with Bot - "<<endl;
 
     cout<<"Choice --------> ";
-    char choice;
     cin>>choice;
 
     switch(choice)
     {
     case '1': initPVP();break;
     case '2': initPVC();break;
+    case '4': initCVC();break;
     }
     RUN();
 }
@@ -54,6 +56,8 @@ void Game::RUN()
         trace.push_back(p2->getPosition());
         update();
     }
+    cout<<"####GAME OVER####"<<endl;
+    b1->display();
 }
 
 void Game::update()
@@ -74,6 +78,12 @@ void Game::update()
     b1->display();
 }
 
+void Game::initPVP()
+{
+    p1 = initHuman("RED", 1, 1);
+    p2 = initHuman("BLUE",b1->getSize()-2, b1->getSize()-2);
+}
+
 void Game::initPVC()
 {
     p1 = initHuman("RED",1,1);
@@ -81,10 +91,10 @@ void Game::initPVC()
 
 }
 
-void Game::initPVP()
+void Game::initCVC()
 {
-    p1 = initHuman("RED", 1, 1);
-    p2 = initHuman("BLUE",b1->getSize()-2, b1->getSize()-2);
+    p1 = initBot("Computer1","BLUE",1,1,1);
+    p2 = initBot("Computer2","RED",b1->getSize()-2,b1->getSize()-2,1);
 }
 
 Player* Game::initHuman(string color, int row, int col)
@@ -97,7 +107,7 @@ Player* Game::initHuman(string color, int row, int col)
 
 Player* Game::initBot(string name,string color, int row, int col, int difficulty)
 {
-    return new Bot(++id, name, color,row, col, difficulty);
+    return new Bot(++id, name, color,row, col, difficulty,b1->getSize());
 }
 Game::~Game()
 {

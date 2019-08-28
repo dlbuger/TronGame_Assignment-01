@@ -6,9 +6,18 @@ using namespace std;
 // Random Walk
 char Bot::generateChoice()
 {
+    int counter = 0;
     char botChoice = popChoice();
     while(isSuicide(botChoice))
+    {
         botChoice = popChoice();
+        counter++;
+
+        if (counter % 3080000 == 0)
+            cout<<"Tried Time ---> "<<counter<<endl;
+        /*     return popChoice(); */
+    }
+    cout<<"Tried Time ---> "<<counter<<endl;
     return botChoice;
 }
 
@@ -24,6 +33,17 @@ bool Bot::isSuicide(char direction)
     for (array<int, 2> c:selfTrace)
         if (preMove(direction) == c)
             return true;
+    
+    if (preMove(direction)[0] == -1)
+        return true;
+    else if (preMove(direction)[0] == mapSize)
+        return true;
+    
+    if (preMove(direction)[1] == -1)
+        return true;
+    else if (preMove(direction)[1] == mapSize)
+        return true;
+
     return false;
 }
 
