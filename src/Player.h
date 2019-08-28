@@ -24,11 +24,12 @@ protected:
     string name;
     string color;
     array<int,2> position; // current coordinate
+    vector<array<int, 2>> selfTrace;
     void moveUp();
     void moveDown();
     void moveLeft();
     void moveRight();
-
 private:
-};
 
+
+};

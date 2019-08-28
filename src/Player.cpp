@@ -11,6 +11,7 @@ Player::Player(int id, string name, string color,int row, int col)
     this->color = color;
     this->position[0] = row;
     this->position[1] = col;
+    selfTrace.push_back(position);
 }
 
 void Player::move(char direction)
@@ -23,9 +24,8 @@ void Player::move(char direction)
     case 'R': moveRight();break;
     default: cout<<"Incorrect instruction!"<<endl;
     }
+    selfTrace.push_back(position);
     cout<<"\t["<<position[0]<<", "<<position[1]<<"]"<<endl;
-
-
 }
 
 bool Player::crash(Player p, vector<array<int, 2>> trace)
