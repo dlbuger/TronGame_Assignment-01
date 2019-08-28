@@ -2,15 +2,14 @@
 #include <algorithm>
 using namespace std;
 
-Bot::Bot(int id,string name, string color, int row, int col, int difficulty)
-{
-    Player(id, name, color, row, col);
-    this->difficulty = difficulty;
-}
 
-char Bot::randomWalk()
+// Random Walk
+char Bot::generateChoice()
 {
-    
+    char botChoice = popChoice();
+    while(isSuicide(botChoice))
+        botChoice = popChoice();
+    return botChoice;
 }
 
 char Bot::popChoice()
@@ -21,8 +20,11 @@ char Bot::popChoice()
 }
 
 bool Bot::isSuicide(char direction)
-{
-
+{   
+    for (array<int, 2> c:selfTrace)
+        if (preMove(direction) == c)
+            return true;
+    return false;
 }
 
 array<int, 2> Bot::preMove(char direction)
@@ -30,10 +32,10 @@ array<int, 2> Bot::preMove(char direction)
     array<int, 2> privatePosition = position;
     switch (direction)
     {
-    case 'U': privatePosition[0]-1;break;
-    case 'D': privatePosition[0]+1;break;
-    case 'L': privatePosition[1]-1;break;
-    case 'R': privatePosition[1]+1;break;
+    case 'U': privatePosition[0]-=1;break;
+    case 'D': privatePosition[0]+=1;break;
+    case 'L': privatePosition[1]-=1;break;
+    case 'R': privatePosition[1]+=1;break;
     }
     return privatePosition;
 }

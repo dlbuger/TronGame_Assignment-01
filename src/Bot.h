@@ -1,18 +1,21 @@
 #pragma once
 #include "Player.h"
 
-class Bot: public Player
+class Bot: virtual public Player
 {
 public:
-    Bot(int id,string name, string color, int row, int col, int difficulty);
+    Bot(int id,string name, string color, int row, int col, int difficulty): Player(id,name,color,row,col)
+    {
+        this->difficulty = difficulty;
+    }
     ~Bot() {}
 
 private:
     int difficulty;
-    char popChoice();
     bool isSuicide(char direction);
     array<int, 2> preMove(char direction);
-    char randomWalk();
+    char generateChoice();
+    char popChoice();
     char MCTS();
 };
 

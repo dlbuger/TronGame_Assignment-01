@@ -10,12 +10,13 @@ class Player
 public:
     Player(int id, string name, string color, int row, int col);
     Player(){}
+    string getName();
     void move(char direction);
     bool crash(Player p, vector<array<int, 2>> trace);
     array<int, 2> getPosition();
     string getColor();
     virtual char generateChoice();
-    ~Player(){
+    virtual ~Player(){
 
     }
 

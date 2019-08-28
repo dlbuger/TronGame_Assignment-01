@@ -36,8 +36,6 @@ bool Player::crash(Player p, vector<array<int, 2>> trace)
         return true;
     }
     for (array<int,2> pass:trace){
-        cout<<"Passed Potions"<<endl;
-        cout<<"\t["<<pass[0]<<", "<<pass[1]<<"]"<<endl;
         if(position == pass){
             cout << color << " Crashed, Game Over!" << endl;
             return true;
@@ -56,6 +54,11 @@ array<int,2> Player::getPosition()
 string Player::getColor()
 {
     return color;
+}
+
+string Player::getName()
+{
+    return name;
 }
 
 
