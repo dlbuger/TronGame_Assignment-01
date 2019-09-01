@@ -28,21 +28,21 @@ void Player::move(char direction)
     cout<<"\t["<<position[0]<<", "<<position[1]<<"]"<<endl;
 }
 
-bool Player::crash(Player p, vector<array<int, 2>> trace)
-{
-    if (position == p.getPosition())
-    {   
-        cout<< "Draw." << endl;
-        return true;
-    }
-    for (array<int,2> pass:trace){
-        if(position == pass){
-            cout << color << " Crashed, Game Over!" << endl;
-            return true;
-        }
-    }
-    return false;
-}
+/* bool Player::crash(Player p, vector<array<int, 2>> trace) */
+/* { */
+/*     if (position == p.getPosition()) */
+/*     { */   
+/*         cout<< "Draw." << endl; */
+/*         return true; */
+/*     } */
+/*     for (array<int,2> pass:trace){ */
+/*         if(position == pass){ */
+/*             cout << color << " Crashed, Game Over!" << endl; */
+/*             return true; */
+/*         } */
+/*     } */
+/*     return false; */
+/* } */
 
 // Accessors
 array<int,2> Player::getPosition()

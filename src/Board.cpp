@@ -73,3 +73,16 @@ void Board::update(Player *p, char mark)
     }
 }
 
+
+void Board::update(Player *p)
+{
+    int x = p->getPosition()[0];
+    int y = p->getPosition()[1];
+    try{
+        track.at(x).at(y)[2]=p->getColor()[0];  //use at() to acess element in order to check list range;
+    }catch(out_of_range){
+        cout<<endl<<"\tGame Over!"<<endl;
+        cout<<p->getColor()<<" Entered Dead Zone."<<endl;
+        exit(0);
+    }
+}

@@ -51,13 +51,37 @@ void Game::RUN()
     b1->display();
 
     update();
-    while(!p1->crash(*p2,trace) && !p2->crash(*p1,trace)){
+    while(!gameEnd()){
         trace.push_back(p1->getPosition());
         trace.push_back(p2->getPosition());
         update();
     }
     cout<<"####GAME OVER####"<<endl;
-    b1->display();
+    // b1->display();
+}
+
+bool Game::gameEnd()
+{
+    if (p1->getPosition() == p2->getPosition())
+    {
+        cout<<"Draw!"<<endl;
+        return true;
+    }
+
+    for (auto c:trace)
+        if (p1->getPosition() == c)
+        {
+            cout<<p1->getColor()<<" Crashed!"<<endl;
+            return true;
+        }
+
+    for (auto c:trace)
+        if (p2->getPosition() == c)
+        {
+            cout<<p2->getColor()<<" Crashed!"<<endl;
+            return true;
+        }
+    return false;
 }
 
 void Game::update()
@@ -67,12 +91,11 @@ void Game::update()
     // Get direction
     cout<<"Red Turn:"<<endl;
     p1->move(p1->generateChoice());
+    b1->update(p1); 
 
     cout<<"Blue Turn:"<<endl;
     p2->move(p2->generateChoice());
-
-    b1->update(p1,'R'); 
-    b1->update(p2,'B');
+    b1->update(p2);
 
     cout<<endl<<endl;
     b1->display();
@@ -93,8 +116,8 @@ void Game::initPVC()
 
 void Game::initCVC()
 {
-    p1 = initBot("Computer1","BLUE",1,1,1);
-    p2 = initBot("Computer2","RED",b1->getSize()-2,b1->getSize()-2,1);
+    p1 = initBot("Computer1","RED",1,1,1);
+    p2 = initBot("Computer2","BLUE",b1->getSize()-2,b1->getSize()-2,1);
 }
 
 Player* Game::initHuman(string color, int row, int col)

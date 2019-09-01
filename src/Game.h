@@ -23,6 +23,7 @@ private:
     void update();
     // Person vs Person
     void RUN();
+    bool gameEnd();
     // Person vs Compuer
     void initPVC();
     void initPVP();
