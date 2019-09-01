@@ -9,23 +9,23 @@
 ## Class Structure
 ### Player
 
-|Player(absract)     |HumanPlayer (inherit Player) |AI (inherit Player)|
-|      ---           |---                          |---                         |
-|id                  |                             |void monte-carlo tree search| 
-|name                |                             |void randomWalk()           |  
-|color               |                             |void Q-Learning()           |
-|------------------------------|
-|getColor()          |
-|move()              |
-|bool isCrash()      |
-|int[2] getPosition()|
-|moveUp()            |
-|moveDown()          |
-|moveLeft()          |
-|moveRight()         |
+|Player                         |HumanPlayer:virtual Player     |Bot: virtual Player            |
+|      ---                      |---                            |---                            |
+|id                             |Player::generateChoice()       |virtul char generateChoice()=0 | 
+|name                           |                               |preMove()                      |  
+|color                          |                               |bool isSuicide()               |
+|-------------------------------|                               |char popChoice()               |                              
+|getColor()                     |
+|move()                         |
+|int[2] getPosition()           |
+|virtual char generateChoice(); |
+|moveUp()                       |
+|moveDown()                     |
+|moveLeft()                     |
+|moveRight()                    |
 
-```cpp
-virtual char generateChoice()=0; //Override in children class; 
-```
+### Bot
+|EasyBot: virtual Bot        |HardBot: virtual Bot|
+|---                         |---|
+|char generateChoice()       |char generateChoice()|
 
-### Board
