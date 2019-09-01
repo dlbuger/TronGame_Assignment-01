@@ -71,14 +71,14 @@ bool Game::gameEnd()
     for (auto c:trace)
         if (p1->getPosition() == c)
         {
-            cout<<p1->getColor()<<" Crashed!"<<endl;
+            cout<<p1->getColor()<<" Crashed "<<p2->getColor()<<"'s Trace!"<<endl;
             return true;
         }
 
     for (auto c:trace)
         if (p2->getPosition() == c)
         {
-            cout<<p2->getColor()<<" Crashed!"<<endl;
+            cout<<p2->getColor()<<" Crashed "<<p1->getColor()<<"'s Trace!"<<endl;
             return true;
         }
     return false;

@@ -1,5 +1,7 @@
 #pragma once
 #include "Player.h"
+#include <random>
+
 
 class Bot: virtual public Player
 {
@@ -19,5 +21,6 @@ private:
     char generateChoice();
     char popChoice();
     char MCTS();
+    int counter = 0;
 };
 

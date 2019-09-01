@@ -6,17 +6,17 @@ using namespace std;
 // Random Walk
 char Bot::generateChoice()
 {
-        int counter = 0;
         char botChoice = popChoice();
         while(isSuicide(botChoice))
         {
                 botChoice = popChoice();
                 counter++;
+                // choices.pop_back();
 
-                if (counter % 9008000 == 0){
+                if (counter == 1000)
+                {
                         cout<<"Tried Time ---> "<<counter<<endl;
                         return popChoice();
-
                 }
         }
         cout<<"Tried Time ---> "<<counter<<endl;
@@ -25,9 +25,12 @@ char Bot::generateChoice()
 
 char Bot::popChoice()
 {
+    // Random -> time seconds computer is much faster than seconds so seed is not change for a while
+        // shuffle(choices.begin(),choices.end(),default_random_engine(time(0)));
         char choices[] = {'U','D','L','R'};
-        srand (time(NULL)); // random seed
+        srand(time(0)+counter);
         return choices[rand()%4];
+        // return choices.back();
 }
 
 bool Bot::isSuicide(char direction)

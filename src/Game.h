@@ -33,6 +33,5 @@ private:
     Player* initBot(string name, string color, int row, int col, int difficulty);
 
     vector<array<int, 2>> trace;
-    void initDeadZone();
 };
 
