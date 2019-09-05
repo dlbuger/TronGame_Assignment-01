@@ -50,6 +50,8 @@ void Game::RUN()
     b1->initPlayer(p1,p2); 
     b1->display();
 
+    trace.push_back(p1->getPosition());
+    trace.push_back(p2->getPosition());
     update();
     while(!gameEnd()){
         trace.push_back(p1->getPosition());
