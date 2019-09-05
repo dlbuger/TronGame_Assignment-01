@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Bot.cpp" />
+    <ClCompile Include="EasyBot.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Human.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -27,6 +29,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
+    <ClInclude Include="Bot.h" />
+    <ClInclude Include="EasyBot.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Human.h" />
     <ClInclude Include="Player.h" />

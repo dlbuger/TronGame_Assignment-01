@@ -52,7 +52,3 @@ void Board::update(Player* p)
 {
 
 }
-int Board::getSize()
-{
-	return size;
-}

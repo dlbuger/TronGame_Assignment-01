@@ -30,6 +30,12 @@
     <ClCompile Include="Human.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Bot.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EasyBot.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h">
@@ -42,6 +48,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Human.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bot.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EasyBot.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

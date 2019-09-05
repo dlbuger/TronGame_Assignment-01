@@ -8,7 +8,6 @@ public:
 	void display();;
 	void update(Player* p, char mark);
 	void update(Player* p);
-	int getSize();
 	~Board() {};
 
 private:
