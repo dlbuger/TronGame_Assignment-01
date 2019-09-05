@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TronGame", "TronGame\TronGame.vcxproj", "{F5C3FBDE-163C-451D-932E-CFACC614F02E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5C3FBDE-163C-451D-932E-CFACC614F02E}.Debug|x64.ActiveCfg = Debug|x64
+		{F5C3FBDE-163C-451D-932E-CFACC614F02E}.Debug|x64.Build.0 = Debug|x64
+		{F5C3FBDE-163C-451D-932E-CFACC614F02E}.Debug|x86.ActiveCfg = Debug|Win32
+		{F5C3FBDE-163C-451D-932E-CFACC614F02E}.Debug|x86.Build.0 = Debug|Win32
+		{F5C3FBDE-163C-451D-932E-CFACC614F02E}.Release|x64.ActiveCfg = Release|x64
+		{F5C3FBDE-163C-451D-932E-CFACC614F02E}.Release|x64.Build.0 = Release|x64
+		{F5C3FBDE-163C-451D-932E-CFACC614F02E}.Release|x86.ActiveCfg = Release|Win32
+		{F5C3FBDE-163C-451D-932E-CFACC614F02E}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7454BFA-4E3A-4CFD-98D3-8E22938B1608}
+	EndGlobalSection
+EndGlobal
