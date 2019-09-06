@@ -1,24 +1,20 @@
 #pragma once
 #include "Player.h"
-#include "Game.h"
 
 class Bot : public Player
 {
-public:
-	Bot(int id, string name, string color, int position[2], Game& g1) 
-		:Player(id, name, color, position) 
-	{
-		this->currentGame = g1;
-		this->mapSize = g1.getBoardSize();
-	};
+
+
 protected: // methods
-	char popChoice();
-	bool isSuicide(char direction);
+	char popChoice(); // 随机生成移动方向
+	bool isSuicide(char direction); // 判断随机生成的移动方向是否会导致死亡
 	int counter = 0;
-	Game currentGame; // 记录下自己和敌方走过的坐标
+	virtual char generateChoice() = 0; // 生成一个有效的移动方向
+	int mapSize;
+	int** tails; // 自己和对手移动过的坐标
+	
 
 private:
-	int mapSize;
 	int* preMove(char direction);
 	
 

@@ -1,2 +1,9 @@
-﻿  Bot.cpp
-G:\dev\TronGame\TronGame\Bot.cpp(7): error C4716:  “Bot::popChoice”: 必须返回一个值
+﻿  Board.cpp
+  Bot.cpp
+  EasyBot.cpp
+  Game.cpp
+  Human.cpp
+  Player.cpp
+  main.cpp
+  正在生成代码...
+  TronGame.vcxproj -> G:\dev\TronGame\Debug\TronGame.exe

@@ -13,4 +13,6 @@ public:
 private:
 	int size;
 	void initVector();
+	string** track;
+	string* borderAs;
 };

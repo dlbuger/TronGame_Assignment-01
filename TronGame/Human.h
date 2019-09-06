@@ -3,7 +3,7 @@
 class Human : public Player
 {
 public:
-	Human(int id, string name, string color, int position[]) : Player(id, name, color, position) {}
+	Human(int id, string name, string color, int position[]);
 private:
 	char generateChoice();
 };
