@@ -9,6 +9,7 @@ public:
 	Player(int id, string name, string color, int position[2]);
 	void move();
 	int* getPosition(); // 返回玩家的坐标 [x, y]
+	string getName(); //返回玩家的名字
 	string getColor(); // 返回玩家的颜色
 
 protected:

@@ -28,6 +28,10 @@ int* Player::getPosition()
 {
 	return position;
 }
+string Player::getName()
+{
+	return name;
+}
 string Player::getColor()
 {
 	return color;

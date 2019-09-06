@@ -39,19 +39,19 @@ void Game::menu()
 }
 void Game::initPVP()
 {
-	p1 = humanPlayer("RED", new int[]{1, 1});
-	p2 = humanPlayer("BLUE", new int[] {size - 2, size - 2});
+	p1 = humanPlayer("RED", new int[2]{1, 1});
+	p2 = humanPlayer("BLUE", new int[2] {size - 2, size - 2});
 }
 void Game::initPVC()
 {
-	p1 = humanPlayer("RED", new int[] {1, 1});
-	p2 = new EasyBot(++playerID, "Easy Bot - TACO", "BLUE", new int[]{ size - 2, size - 2 }, this);
+	p1 = humanPlayer("RED", new int[2] {1, 1});
+	p2 = new EasyBot(++playerID, "Easy Bot - TACO", "BLUE", new int[2]{ size - 2, size - 2 }, *this);
 
 }
 void Game::initCVC()
 {
-	p1 = new EasyBot(++playerID, "Easy Bot - TACO", "RED", new int[] {1, 1}, this);
-	p2 = new EasyBot(++playerID, "Easy Bot - Jason", "BLUE", new int[] {size - 2, size - 2}, this);
+	p1 = new EasyBot(++playerID, "Easy Bot - TACO", "RED", new int[2] {1, 1}, *this);
+	p2 = new EasyBot(++playerID, "Easy Bot - Jason", "BLUE", new int[2] {size - 2, size - 2}, *this);
 
 }
 Player* Game::humanPlayer(string color, int position[2])
@@ -86,6 +86,12 @@ bool Game::endGame()
 }
 void Game::RUN()
 {
+	cout << "Create Player 1 - " << p1->getColor() << " " << p1->getName() << endl;
+	cout << "Create Player 2 - " << p2->getColor() << " " << p2->getName() << endl;
+	cout << "Initialize Players complete!" << endl;
+	b1->update(p1);
+	b1->update(p2);
+	b1->display();
 
 }
 

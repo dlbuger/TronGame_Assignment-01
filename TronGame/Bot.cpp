@@ -21,7 +21,7 @@ bool Bot::isSuicide(char direction)
 		return true;
 	// 再判定是否撞上敌人或自己的轨迹
 	for (int i = 0; i < mapSize; i++)
-		if (*preMove(direction) == *(currentGame->getTail[i]))
+		if (*(preMove(direction)) == (currentGame.getTail[i]))
 			return true;
 	// 默认返回false
 	return false;
