@@ -1,5 +1,6 @@
 #pragma once
 #include "Player.h"
+#include <vector>
 
 class Bot : public Player
 {
@@ -11,11 +12,11 @@ protected: // methods
 	int counter = 0;
 	virtual char generateChoice() = 0; // 生成一个有效的移动方向
 	int mapSize;
-	int** tails; // 自己和对手移动过的坐标
+	vector<array<int, 2>>* tails; // 自己和对手移动过的坐标
 	
 
 private:
-	int* preMove(char direction);
+	array<int,2> preMove(char direction);
 	
 
 };

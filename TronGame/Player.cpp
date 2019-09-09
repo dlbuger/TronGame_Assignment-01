@@ -21,9 +21,9 @@ void Player::move()
 	}
 	
 }
-int* Player::getPosition()
+array<int,2> Player::getPosition()
 {
-	return position;
+	return {position[0],position[1]};
 }
 string Player::getName()
 {
@@ -49,5 +49,7 @@ void Player::moveRight()
 {
 	position[1]++;
 }
-
+Player::~Player()
+{
+}
 

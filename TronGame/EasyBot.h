@@ -4,7 +4,7 @@
 class EasyBot : virtual public Bot
 {
 public:
-	EasyBot(int id, string name, string color, int position[2], int mapSize, int** tails);
+	EasyBot(int id, string name, string color, array<int,2> position, int mapSize, vector<array<int, 2>>* tails);
 
 	char generateChoice();
 };

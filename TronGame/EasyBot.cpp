@@ -1,5 +1,5 @@
 #include "EasyBot.h"
-EasyBot::EasyBot(int id, string name, string color, int position[2], int mapSize, int** tails)
+EasyBot::EasyBot(int id, string name, string color, array<int,2> position, int mapSize, vector<array<int, 2>>* tails)
 {
 	Player::id = id;
 	Player::name = name;
@@ -15,8 +15,6 @@ char EasyBot::generateChoice()
 	{
 		botChoice = popChoice();
 		counter++;
-		
-
 		if (counter == 1000)
 		{
 			cout << "Tried Time ---> " << counter << endl;

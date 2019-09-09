@@ -1,9 +1,2 @@
-﻿  Board.cpp
-  Bot.cpp
-  EasyBot.cpp
-  Game.cpp
-  Human.cpp
-  Player.cpp
-  main.cpp
-  正在生成代码...
+﻿  EasyBot.cpp
   TronGame.vcxproj -> G:\dev\TronGame\Debug\TronGame.exe

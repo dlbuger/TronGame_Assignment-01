@@ -1,6 +1,6 @@
 #include "Human.h"
 
-Human::Human(int id, string name, string color, int position[])
+Human::Human(int id, string name, string color, array<int,2> position)
 {
 	Player::id = id;
 	Player::name = name;

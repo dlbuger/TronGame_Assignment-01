@@ -14,16 +14,11 @@ void Board::initVector()
 {
 	string const borderA = " ---";
 	string const borderB = "|   ";
-
 	borderAs = new string[size];
-	string* borderBs = new string[size];
 	
 	for (int i = 0; i < size; i++)
-	{
 		*(borderAs + i) = borderA;
-		*(borderBs + i) = borderB;
-	}
-
+	
 	track = new string* [size];
 	for (int k = 0; k < size; k++)
 		track[k] = new string[size];
@@ -58,12 +53,27 @@ void Board::update(Player* p)
 {
 	int x = p->getPosition()[0];
 	int y = p->getPosition()[1];
-	try {
+	if (isInside(x,y)) {
 		track[x][y][2] = p->getColor()[0];
 	}
-	catch (...) {
+	else{
 		cout << "\t Game Over" << endl;
 		cout << p->getColor() << " Entered Dead Zone." << endl;
 		exit(0);
 	}
+}
+bool Board::isInside(int x, int y)
+{
+	if (x == -1 || x == size || y == -1 || y == size)
+		return false;
+	else
+		return true;
+}
+Board::~Board()
+{
+	for (int i = 0; i < size; i++)
+		delete[] track;
+	delete track, borderAs;
+
+	
 }

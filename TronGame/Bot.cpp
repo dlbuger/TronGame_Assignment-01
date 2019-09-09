@@ -21,15 +21,15 @@ bool Bot::isSuicide(char direction)
 	else if (preMove(direction)[1] == mapSize)
 		return true;
 	// 再判定是否撞上敌人或自己的轨迹
-	for (int i = 0; i < mapSize; i++)
-		if (*preMove(direction) == *(tails[i]))
+	for (array<int,2> tail: *tails)
+		if (preMove(direction) == tail)
 			return true;
 	// 默认返回false
 	return false;
 }
-int* Bot::preMove(char direction)
+array<int,2> Bot::preMove(char direction)
 {
-	int* positionCopy = position;
+	array<int,2> positionCopy = position;
 	switch (direction)
 	{
 	case 'U': positionCopy[0] -= 1; break;
